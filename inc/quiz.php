@@ -71,3 +71,27 @@ if ($_POST['answer'] == '' || !(isset($_POST['answer']))) {
     // mix up the answer choises
     shuffle($_SESSION['answersArray']);
   }
+// if an answer has been submited
+} else {
+  // set $i to the last value in previousQuestions
+  $i = (end($_SESSION['previousQuestions']));
+  // check if the submited answer is correct
+  if (($_POST['answer']) == $_SESSION['questions'][$i]['correctAnswer']) {
+    $toast = "that is correct";
+    $_SESSION['score'] += 1;
+  }else {
+    $toast = "that is incorrect";
+  }
+  // get the question that was answered
+  $currentQuestion =  $_SESSION['questions'][$i]['leftAdder'] . " + " . $_SESSION['questions'][$i]['rightAdder'];
+  $questionNumber = (count($_SESSION['previousQuestions']));
+  // clear the submited answer from $_POST['answer']
+  $_POST['answer'] = '';
+  $showtoast = true;
+  // find the index in answersArray that has the correct answer
+  for($j=0;$j<(count($_SESSION['answersArray']));$j++) {
+    if ($_SESSION['answersArray'][$j] == $_SESSION['questions'][$i]['correctAnswer']) {
+      $correctAnswer = $j;
+    }
+  }
+}
