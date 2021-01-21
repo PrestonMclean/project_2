@@ -2,6 +2,7 @@
 
 body {
   font-family: 'Playfair Display', serif;
+  background-color: #D56062;
 }
 
 #quiz-box {
@@ -52,9 +53,9 @@ body {
   display: inline-block;
   bottom: 150px;
   border-radius: 4px;
-  border: 2px solid #000;
+  border: 2px solid #0D1F82;
   color: #fff;
-  background-color: #000;
+  background-color: #011376;
   padding: 15px;
   margin: 10px;
   transition: .5s ;
@@ -67,4 +68,9 @@ body {
 
 .btn:focus {
   outline: none;
+}
+
+.correct {
+  border-color: #31A34F;
+  background-color: #0DD943;
 }
