@@ -40,3 +40,11 @@ if ($_SESSION['previousQuestions'] == []) {
     $_SESSION['questions'][$i] = randomQuestionGenerator();
   }
 }
+
+// check if an answer has been submited
+if ($_POST['answer'] == '' || !(isset($_POST['answer']))) {
+  // check if all question have been asked
+  if ((count($_SESSION['previousQuestions'])) == ($numberOfQuestions)) {
+    // reset previousQuestions array to a empty array
+    $_SESSION['previousQuestions'] = [];
+    $showScore = true;
