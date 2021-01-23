@@ -25,8 +25,18 @@ function randomQuestionGenerator () {
     $random2;
     // get random numbers that non zero and unique
     do {
-      $random1 = rand(-(.3*$temp['correctAnswer']), 10);
-      $random2 = rand(-(.3*$temp['correctAnswer']), 10);
+      // make sure the incorrect answers are not negative and close to the correct answer
+      if (10 > $temp['correctAnswer']) {
+        $random1 = rand(-1, 5);
+        $random2 = rand(-1, 5);
+      }
+      elseif (10 >= (.25*$temp['correctAnswer'])) {
+        $random1 = rand(-(.15*$temp['correctAnswer']), 10);
+        $random2 = rand(-(.15*$temp['correctAnswer']), 10);
+      } else {
+        $random1 = rand(-10, 10);
+        $random2 = rand(-10, 10);
+      }
     } while (($random1 == $random2) || ($random1 == 0) || ($random2 == 0));
 
     // add the random numbers to the answer to get the wrong answers
