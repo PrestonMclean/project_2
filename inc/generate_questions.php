@@ -29,8 +29,7 @@ function randomQuestionGenerator () {
       if (10 > $temp['correctAnswer']) {
         $random1 = rand(-1, 5);
         $random2 = rand(-1, 5);
-      }
-      elseif (10 >= (.25*$temp['correctAnswer'])) {
+      } elseif (10 >= (.25*$temp['correctAnswer'])) {
         $random1 = rand(-(.15*$temp['correctAnswer']), 10);
         $random2 = rand(-(.15*$temp['correctAnswer']), 10);
       } else {
